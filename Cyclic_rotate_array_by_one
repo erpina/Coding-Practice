@@ -1,0 +1,37 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <bits/stdc++.h>
+using namespace std; 
+
+void cyclic_rotateby_one(int arr[], int n)
+{
+    int temp=arr[n-1];
+    for (int i=n-1; i>0; i--)
+    {
+        arr[i]=arr[i-1];
+    }    
+    arr[0]=temp;
+}
+
+void print (int arr[], int n)
+{
+    for (int i=0; i<n;i++)
+    {
+        cout<<arr[i];
+    }
+}
+
+int main()
+{
+   int arr[]={1,2,3,4,5,6};
+   int n= sizeof(arr)/sizeof(arr[0]);
+   cyclic_rotateby_one(arr,n);
+   print(arr,n);
+    return 0;
+}
