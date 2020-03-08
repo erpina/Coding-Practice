@@ -1,0 +1,31 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+C#, VB, Perl, Swift, Prolog, Javascript, Pascal, HTML, CSS, JS
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <bits/stdc++.h>
+using namespace std;
+
+void print_left_rotated_array(int arr[], int rotations, int n)
+{
+    for (int i=rotations; i< rotations+n; i++)
+    {
+        cout<<arr[i%n];
+    }
+}
+
+int main()
+{
+    int arr[]={1,2,3,4,5};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    
+    //k=3
+   int rotations =3;
+   
+   print_left_rotated_array(arr,rotations,n);
+
+    return 0;
+}
