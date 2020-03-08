@@ -1,0 +1,83 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <bits/stdc++.h>
+using namespace std;
+
+int binary_search (int arr[], int start,int end, int find)
+{
+  if (start>end)
+  return -1; 
+  
+  int mid=start+(end-start)/2;
+  
+  if (arr[mid]== find)
+    return mid;
+    
+  if (arr[mid] > find)
+   binary_search(arr, start, mid-1, find);
+   else
+   binary_search(arr, mid+1, end, find);
+  
+}
+
+int find_pivot(int arr[], int start, int end)
+{
+ if(end<start)
+ return -1;
+ if (start==end)
+ return end;
+
+    int mid = start+(end-start)/2;
+    if (arr[mid]>arr[mid+1])
+    {
+      return mid;
+    }
+    else if (arr[mid]<arr[mid-1])
+    {
+        return mid-1;
+    }
+    
+    if (arr[mid] >= arr[start])
+    {
+        find_pivot(arr, mid+1, end);
+    }
+    else 
+    {
+        find_pivot(arr, start, mid);
+
+    }    
+}
+
+int find_element(int arr[], int n, int find)
+{
+    int pivot=find_pivot(arr, 0, n-1);
+   cout <<pivot<<"\n";
+    
+    if(arr[pivot] == find)
+    {
+      return pivot;
+    }
+    else if (arr[0]> find){
+      binary_search(arr, pivot+1, n-1,find);
+    }
+    else {
+      binary_search(arr,0, pivot-1,find);
+    }
+}
+
+int main()
+{
+    int arr[]={90,91,92,93,94,95,96,1,2,3};
+    int  n=sizeof(arr)/sizeof(arr[0]);
+    int element =3;
+    int index=find_element(arr,n,element);
+    cout<<index;
+
+    return 0;
+}
