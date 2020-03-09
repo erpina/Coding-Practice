@@ -1,0 +1,38 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int arr[]={1,2,3,4,5};
+    int n= sizeof(arr)/sizeof(arr[0]);
+    int CurrentVal=0;
+    int max_value=0;
+    int arrsum =0;
+    for (int i=0; i<n ; i++)
+     {
+        arrsum=arrsum+arr[i];
+        CurrentVal= CurrentVal+i*arr[i];
+     }
+     
+    max_value=CurrentVal;
+    for (int j=1; j<n; j++)
+    {
+        CurrentVal= CurrentVal+arrsum- n*arr[n-j];
+        if(CurrentVal > max_value)
+        {
+            max_value =CurrentVal;
+        }
+    }
+    
+    cout << max_value;
+    
+    return 0;
+}
