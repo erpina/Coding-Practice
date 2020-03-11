@@ -1,0 +1,54 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <bits/stdc++.h>
+using namespace std;
+
+void rearrange(int arr[], int n)
+{
+    int even_pos=n/2;
+    int odd_pos=n-(n/2);
+    int aux_array[n];
+    for(int i=0; i<n; i++)
+    aux_array[i]=arr[i];
+    
+    sort(aux_array,(aux_array+n));
+    
+    int j=odd_pos-1;
+    
+    for (int i=0;i<n; i=i+2)
+    {
+        arr[i]=aux_array[j];
+        j--;
+    }
+    j=odd_pos;
+    
+    for (int i=1; i <n; i=i+2)
+    {
+        arr[i]=aux_array[j];
+        j++;
+    }
+    
+}
+
+void print(int arr[], int n)
+{
+    for(int i=0; i<n; i++)
+    {
+        cout<<arr[i];
+    }
+}
+
+int main()
+{
+    int arr[]={3,2,1,4,5,8,7,6};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    rearrange(arr,n);
+    print(arr,n);
+    return 0;
+}
